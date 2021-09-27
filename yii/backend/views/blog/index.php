@@ -29,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'text:ntext',
+//            'text:ntext',
             'url:url',
             'status_id',
-            //'sort',
+            'sort',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

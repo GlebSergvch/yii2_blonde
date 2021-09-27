@@ -67,6 +67,7 @@ class BlogController extends Controller
     public function actionCreate()
     {
         $model = new Blog();
+        $model->sort = 50;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
