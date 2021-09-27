@@ -10,11 +10,10 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['debug', 'log', 'gii',],
+    'bootstrap' => ['log', 'gii', 'debug'],
     'modules'=>[
         'gii'=> [
             'class'=>'yii\gii\Module',
-            'ipFilters'=>false,
         ],
         'debug' => [
             'class' => 'yii\debug\Module',
