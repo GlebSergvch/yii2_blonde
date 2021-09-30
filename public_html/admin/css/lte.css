@@ -1,0 +1,10 @@
+
+.navbar-static-top, .navbar-nav {
+    display: table;
+    content: " ";
+}
+
+.navbar-static-top {
+    padding: 0 10px;
+    width: calc(100% - 230px);
+}
