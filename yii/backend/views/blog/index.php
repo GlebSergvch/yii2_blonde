@@ -26,15 +26,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete} {check}',
+                'buttons' => [
+//                    'update' => function($url, $model, $key) {
+//                        return Html::a('asdas', $url);
+//                    },
+                    'check' => function($url, $model, $key) {
+                        return Html::a('<i class="fa fa-check" aria-hidden="true"></i>', $url);
+                    },
+                ],
+                'visibleButtons' => [
+                        'check' => function($model, $key, $index) {
+                            return $model->status_id === 1;
+                        }
+                ]
+            ],
             'id',
             'title',
 //            'text:ntext',
-            'url:url',
-            'status_id',
+            ['attribute' => 'url', 'format'=>'text', 'headerOptions' => ['class' => 'url-text']],
+            ['attribute' => 'status_id', 'filter' => \common\models\Blog::getStatusList(), 'value' => 'statusName'],
             'sort',
-
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

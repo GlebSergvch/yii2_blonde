@@ -1,17 +1,18 @@
 <?php
-/* @var $blogs \common\models\Blog */
+/* @var $dataProvider \yii\data\ActiveDataProvider */
+
+use yii\widgets\ListView;
+
+$blog = $dataProvider->getModels();
 ?>
 
 <div class="body-content">
 
-    <div class="row">
-        <?php foreach ($blogs as $post) :?>
-            <div class="col-lg-4">
-                <h2><?= $post->title ?></h2>
-                <p><?= $post->text ?></p>
-                <?= yii\helpers\Html::a('подробнее', ['blog/one', 'url'=>$post->url]) ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
+    <?=
+        ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_one',
+        ]);
+    ?>
 
 </div>
