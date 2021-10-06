@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' => 'url', 'format'=>'text', 'headerOptions' => ['class' => 'url-text']],
             ['attribute' => 'status_id', 'filter' => \common\models\Blog::getStatusList(), 'value' => 'statusName'],
             'sort',
+            ['attribute' => 'tags', 'value' => 'tagsAsString']
         ],
     ]); ?>
 

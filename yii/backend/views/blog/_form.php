@@ -16,16 +16,16 @@ use vova07\imperavi\Widget;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?=
-        $form->field($model, 'text')->widget(Widget::className(), [
-            'settings' => [
-                'lang' => 'ru',
-                'minHeight' => 200,
-                'plugins' => [
-                    'clips',
-                    'fullscreen',
-                ],
+    $form->field($model, 'text')->widget(Widget::className(), [
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen',
             ],
-        ]);
+        ],
+    ]);
     ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
@@ -35,6 +35,19 @@ use vova07\imperavi\Widget;
     <?= $form->field($model, 'status_id')->dropDownList(\common\models\Blog::getStatusList()) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
+
+    <?=
+    $form->field($model, 'tags_array')->widget(\kartik\select2\Select2::className(), [
+        'data' => \yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id', 'name'),
+        'language' => 'ru',
+        'options' => ['placeholder' => 'Выбрать tag ...', 'multiple' => true],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'tags' => true,
+            'maximumInputLength' => 10
+        ],
+    ]);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
