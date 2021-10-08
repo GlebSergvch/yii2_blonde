@@ -14,6 +14,14 @@ return [
     'modules'=>[
         'gii'=> [
             'class'=>'yii\gii\Module',
+            'generators' => [ // здесь
+                'crud' => [ // название генератора
+                    'class' => 'yii\gii\generators\crud\Generator', // класс генератора
+                    'templates' => [ // настройки сторонних шаблонов
+                        'myGii' => '@common/generators/crud/default', // имя_шаблона => путь_к_шаблону
+                    ]
+                ]
+            ],
         ],
         'debug' => [
             'class' => 'yii\debug\Module',
@@ -21,13 +29,6 @@ return [
         ]
     ],
     'components' => [
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-                ],
-            ],
-        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
