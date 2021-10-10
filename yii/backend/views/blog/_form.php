@@ -20,6 +20,7 @@ use vova07\imperavi\Widget;
         'settings' => [
             'lang' => 'ru',
             'minHeight' => 200,
+            'imageUpload' => \yii\helpers\Url::to(['/site/save-redactor-img', 'sub'=>'blog']),
             'plugins' => [
                 'clips',
                 'fullscreen',
@@ -32,7 +33,7 @@ use vova07\imperavi\Widget;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status_id')->dropDownList(\common\models\Blog::getStatusList()) ?>
+    <?= $form->field($model, 'status_id')->dropDownList(\common\models\Blog::STATUS_LIST) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
 
