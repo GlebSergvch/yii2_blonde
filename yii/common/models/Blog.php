@@ -8,6 +8,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 use yii\db\Expression;
 use yii\helpers\FileHelper;
+use yii\helpers\Url;
 use yii\web\UploadedFile;
 
 /**
@@ -109,6 +110,16 @@ class Blog extends \yii\db\ActiveRecord
     public function getTagsAsString() {
         $arr = ArrayHelper::map($this->tags, 'id', 'name');
         return implode(', ', $arr);
+    }
+
+    public function getSmallImage() {
+        if ($this->image) {
+            $path = str_replace('admin.','', Url::home(true)).'uploads/images/blog/50x50/'.$this->image;
+        }
+        else {
+            $path = str_replace('admin.','', Url::home(true)).'uploads/images/nophoto.svg';
+        }
+        return $path;
     }
 
     public function afterFind() {

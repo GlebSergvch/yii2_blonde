@@ -12,3 +12,7 @@
 .sidebar-menu {
     display: block !important;
 }
+
+.grid-view td > img {
+    max-width: 50px;
+}

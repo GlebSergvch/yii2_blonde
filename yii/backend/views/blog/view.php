@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'author.username',
             'author.email',
             'tagsAsString',
-            'image',
+            'smallImage:image',
         ],
     ]) ?>
 
