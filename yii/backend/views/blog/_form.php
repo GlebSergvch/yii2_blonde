@@ -1,5 +1,6 @@
 <?php
 
+use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
@@ -11,7 +12,9 @@ use vova07\imperavi\Widget;
 
 <div class="blog-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+            'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -20,13 +23,19 @@ use vova07\imperavi\Widget;
         'settings' => [
             'lang' => 'ru',
             'minHeight' => 200,
-            'imageUpload' => \yii\helpers\Url::to(['/site/save-redactor-img', 'sub'=>'blog']),
+            'imageUpload' => \yii\helpers\Url::to(['/site/save-redactor-img', 'sub' => 'blog']),
             'plugins' => [
                 'clips',
                 'fullscreen',
             ],
         ],
     ]);
+    ?>
+
+    <?=
+        $form->field($model, 'file')->widget(FileInput::classname(), [
+            'options' => ['accept' => 'image/*'],
+        ]);
     ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
