@@ -1,38 +1,61 @@
-version: '3.2'
+version: "3.7"
 
 services:
-
-  frontend:
-    build: frontend
-    ports:
-      - 20080:80
+  app:
+    container_name: blog-app
+    build: docker/php
     volumes:
-      # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      # Mount source-code for development
-      - ./:/app
+      - ./:/app/yii
+    depends_on:
+      - db
 
-  backend:
-    build: backend
+  nginx:
+    container_name: blog_nginx_1
+    image: nginx:1.12-alpine
     ports:
-      - 21080:80
+      - 80:80
     volumes:
-      # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      # Mount source-code for development
-      - ./:/app
+      - ./:/app/yii
+      - ./docker/nginx/vhost_single_domain.conf:/etc/nginx/conf.d/vhost.conf
+    depends_on:
+      - app
 
-  mysql:
-    image: mysql:5.7
+  db:
+    image: mariadb:5.5.60
+    volumes:
+      - /var/lib/mysql
+      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
+    ports:
+      - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=verysecret
-      - MYSQL_DATABASE=yii2advanced
-      - MYSQL_USER=yii2advanced
-      - MYSQL_PASSWORD=secret
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: siteblog
+      MYSQL_USER: ysk_dbu
+      MYSQL_PASSWORD: ysk_pass
 
-  #pgsql:
-  #  image: postgres:9.5
-  #  environment:
-  #    - POSTGRES_DB=yii2advanced
-  #    - POSTGRES_USER=yii2advanced
-  #    - POSTGRES_PASSWORD=secret
+  redis:
+    container_name: yii_redis_1
+    image: redis:alpine
+
+#  selenium-chrome:
+#    container_name: p24_selenium_1
+#    image: selenium/standalone-chrome:latest
+#    volumes:
+#      - /dev/shm:/dev/shm
+#    expose:
+#      - "4444"
+#    ports:
+#      - 4444:4444
+#    environment:
+#      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=
+#      - START_XVFB=false
+#      - NODE_MAX_INSTANCES=5
+#      - NODE_MAX_SESSION=5
+#    depends_on:
+#      - nginx
+#      - app
+
+networks:
+  default:
+    name: yii2-starter-kit_default
+
