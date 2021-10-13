@@ -99,6 +99,10 @@ class Blog extends \yii\db\ActiveRecord
         return $this->hasOne(User::class, ['id'=>'user_id']);
     }
 
+    public function getImages() {
+        return $this->hasMany(ImageManager::class, ['item_id'=>'id'])->where(['class' => self::tableName()]);
+    }
+
     public function getBlogTag() {
         return $this->hasMany(BlogTag::class, ['blog_id'=>'id']);
     }

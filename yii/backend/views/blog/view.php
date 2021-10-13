@@ -42,4 +42,28 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?php
+    $fotorama = \metalguardian\fotorama\Fotorama::begin(
+        [
+            'options' => [
+                'loop' => true,
+                'hash' => true,
+                'ratio' => 800/600,
+            ],
+            'spinner' => [
+                'lines' => 20,
+            ],
+            'tagName' => 'span',
+            'useHtmlData' => false,
+            'htmlOptions' => [
+                'class' => 'custom-class',
+                'id' => 'custom-id',
+            ],
+        ]
+    );
+    foreach ($model->images as $oneImage) {
+        echo Html::img($oneImage->imageUrl, ['alt' => $oneImage->alt]);
+    }
+    \metalguardian\fotorama\Fotorama::end(); ?>
+
 </div>

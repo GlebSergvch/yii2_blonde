@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3cf84a30c53fba29354794dfe4ca2cd",
+    "content-hash": "d027f04d0a0f7029c836402dbb5d4ca8",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -68,6 +68,27 @@
             },
             "require": {
                 "bower-asset/jquery": ">=1.9.1,<4.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/fotorama",
+            "version": "4.6.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:artpolikarpov/fotorama-bower.git",
+                "reference": "bc05ef11b5cd307fd46d50e269abf8c8808fa4e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artpolikarpov/fotorama-bower/zipball/bc05ef11b5cd307fd46d50e269abf8c8808fa4e5",
+                "reference": "bc05ef11b5cd307fd46d50e269abf8c8808fa4e5"
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8"
             },
             "type": "bower-asset",
             "license": [
@@ -822,6 +843,63 @@
                 }
             ],
             "time": "2021-10-06T11:17:54+00:00"
+        },
+        {
+            "name": "metalguardian/yii2-fotorama-widget",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MetalGuardian/yii2-fotorama-widget.git",
+                "reference": "bc4c0471f9325daf2b4e8f47f28b982f59dc797b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MetalGuardian/yii2-fotorama-widget/zipball/bc4c0471f9325daf2b4e8f47f28b982f59dc797b",
+                "reference": "bc4c0471f9325daf2b4e8f47f28b982f59dc797b",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/fotorama": "4.*",
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower-asset"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "metalguardian\\fotorama\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Pushkin",
+                    "email": "imetalguardi+yii2@gmail.com"
+                }
+            ],
+            "description": "fotorama image gallery yii2 widget",
+            "homepage": "https://github.com/MetalGuardian/yii2-fotorama-widget",
+            "keywords": [
+                "extension",
+                "fotorama",
+                "widget",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/MetalGuardian/yii2-fotorama-widget/issues",
+                "source": "https://github.com/MetalGuardian/yii2-fotorama-widget/tree/master"
+            },
+            "abandoned": true,
+            "time": "2018-01-16T00:37:45+00:00"
         },
         {
             "name": "npm-asset/bootstrap",

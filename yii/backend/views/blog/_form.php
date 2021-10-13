@@ -2,6 +2,7 @@
 
 use kartik\file\FileInput;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
 
@@ -74,5 +75,22 @@ use vova07\imperavi\Widget;
     </div>
 
     <?php ActiveForm::end(); ?>
+
+    <?=
+    FileInput::widget([
+        'name' => 'ImageManager[attachment]',
+        'options'=>[
+            'multiple'=>true
+        ],
+        'pluginOptions' => [
+            'uploadUrl' => Url::to(['/site/save-img']),
+            'uploadExtraData' => [
+                'ImageManager[class]' => $model->formName(),
+                'ImageManager[item_id]' => $model->id
+            ],
+            'maxFileCount' => 10
+        ]
+    ]);
+    ?>
 
 </div>
