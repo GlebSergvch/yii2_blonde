@@ -1,4 +1,4 @@
 codeception-local.php
-main-local.php
-params-local.php
-test-local.php
+#../../common/config/main-local.php
+#../../common/config/params-local.php
+#test-local.php

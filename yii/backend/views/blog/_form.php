@@ -76,6 +76,16 @@ use vova07\imperavi\Widget;
 
     <?php ActiveForm::end(); ?>
 
+    555
+
+    <?=
+        \yii\helpers\VarDumper::dump($model->images, 100, true);
+        \yii\helpers\VarDumper::dump($model->imagesLinks, 100, true);
+        \yii\helpers\VarDumper::dump($model->imagesLinksData, 100, true);
+    ?>
+
+    5555
+
     <?=
     FileInput::widget([
         'name' => 'ImageManager[attachment]',
@@ -83,12 +93,22 @@ use vova07\imperavi\Widget;
             'multiple'=>true
         ],
         'pluginOptions' => [
+            'deleteUrl' => Url::toRoute(['/blog/delete-image']),
+            'initialPreview' => $model->imagesLinks,
+            'initialPreviewAsData' => true,
+            'overwriteInitial' => false,
+            'initialPreviewConfig' => $model->imagesLinksData,
             'uploadUrl' => Url::to(['/site/save-img']),
             'uploadExtraData' => [
                 'ImageManager[class]' => $model->formName(),
                 'ImageManager[item_id]' => $model->id
             ],
             'maxFileCount' => 10
+        ],
+        'pluginEvents' => [
+            'filesorted' => new \yii\web\JsExpression('function(event, params){
+                  $.post("'.Url::toRoute(["/blog/sort-image","id"=>$model->id]).'",{sort: params});
+            }')
         ]
     ]);
     ?>

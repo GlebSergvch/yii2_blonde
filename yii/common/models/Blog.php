@@ -100,7 +100,20 @@ class Blog extends \yii\db\ActiveRecord
     }
 
     public function getImages() {
-        return $this->hasMany(ImageManager::class, ['item_id'=>'id'])->where(['class' => self::tableName()]);
+        return $this->hasMany(ImageManager::class, ['item_id'=>'id'])->where(['class' => self::tableName()])->orderBy('sort');
+    }
+
+    public function getImagesLinks() {
+        return ArrayHelper::getColumn($this->images, 'imageUrl');
+    }
+
+    public function getImagesLinksData() {
+        return ArrayHelper::toArray($this->images,[
+                ImageManager::className() => [
+                    'caption'=>'name',
+                    'key'=>'id',
+                ]]
+        );
     }
 
     public function getBlogTag() {
