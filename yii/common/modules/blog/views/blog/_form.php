@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Blog */
+/* @var $model common\modules\blog\models\Blog */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -50,7 +50,7 @@ use vova07\imperavi\Widget;
 
         <?= $form->field($model, 'url', ['options'=>['class'=>'col-xs-6']])->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'status_id', ['options'=>['class'=>'col-xs-6']])->dropDownList(\common\models\Blog::STATUS_LIST) ?>
+        <?= $form->field($model, 'status_id', ['options'=>['class'=>'col-xs-6']])->dropDownList(\common\modules\blog\models\Blog::STATUS_LIST) ?>
 
         <?= $form->field($model, 'sort', ['options'=>['class'=>'col-xs-6']])->textInput() ?>
 
@@ -58,7 +58,7 @@ use vova07\imperavi\Widget;
 
         <?=
             $form->field($model, 'tags_array', ['options'=>['class'=>'col-xs-6']])->widget(\kartik\select2\Select2::className(), [
-                'data' => \yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(), 'id', 'name'),
+                'data' => \yii\helpers\ArrayHelper::map(\common\modules\blog\models\Tag::find()->all(), 'id', 'name'),
                 'language' => 'ru',
                 'options' => ['placeholder' => 'Выбрать tag ...', 'multiple' => true],
                 'pluginOptions' => [

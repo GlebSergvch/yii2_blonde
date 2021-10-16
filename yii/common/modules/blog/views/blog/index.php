@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\BlogSearch */
+/* @var $searchModel common\modules\blog\models\BlogSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Blogs';
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
 //            'text:ntext',
             ['attribute' => 'url', 'format'=>'text', 'headerOptions' => ['class' => 'url-text']],
-            ['attribute' => 'status_id', 'filter' => \common\models\Blog::STATUS_LIST, 'value' => 'statusName'],
+            ['attribute' => 'status_id', 'filter' => \common\modules\blog\models\Blog::STATUS_LIST, 'value' => 'statusName'],
             'sort',
             'smallImage:image',
             'date_create',

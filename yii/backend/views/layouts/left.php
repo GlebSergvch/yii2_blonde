@@ -40,7 +40,7 @@ use yii\bootstrap\Nav;
 //                    ['label' => '<i class="fa fa-file-code-o"></i><span>Блог</span>', 'url' => ['/blog']],
 //                    ['label' => '<i class="fa fa-dashboard"></i><span>Теги</span>', 'url' => ['/tag']],
                     ['label' => '<i class="fa fa-pencil"></i><span>Блог</span>', 'url' => ['/blog']],
-                    ['label' => '<i class="fa fa-tags"></i><span>Теги</span>', 'url' => ['/tag']],
+                    ['label' => '<i class="fa fa-tags"></i><span>Теги</span>', 'url' => ['/blog/tag']],
                     ['label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>', 'url' => ['/gii']],
                     ['label' => '<i class="fa fa-dashboard"></i><span>Debug</span>', 'url' => ['/debug']],
                     [

@@ -4,7 +4,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Blog */
+/* @var $model common\modules\blog\models\Blog */
 
 $this->title = 'Update Blog: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Blogs', 'url' => ['index']];

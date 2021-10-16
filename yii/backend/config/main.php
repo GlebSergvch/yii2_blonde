@@ -26,7 +26,10 @@ return [
         'debug' => [
             'class' => 'yii\debug\Module',
             'allowedIPs' => ['127.0.0.1', '::1']
-        ]
+        ],
+        'blog' => [
+            'class' => 'common\modules\blog\Blog',
+        ],
     ],
     'components' => [
         'request' => [

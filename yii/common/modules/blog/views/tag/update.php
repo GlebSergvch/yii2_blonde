@@ -3,13 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Tag */
+/* @var $model common\modules\blog\models\Tag */
 
-$this->title = 'Create Tag';
+$this->title = 'Update Tag: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Tags', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="tag-create">
+<div class="tag-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

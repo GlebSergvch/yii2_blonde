@@ -1,9 +1,9 @@
 <?php
 
-namespace backend\controllers;
+namespace common\modules\blog\controllers;
 
-use common\models\Blog;
-use common\models\BlogSearch;
+use common\modules\blog\models\Blog;
+use common\modules\blog\models\BlogSearch;
 use common\models\ImageManager;
 use Yii;
 use yii\web\Controller;

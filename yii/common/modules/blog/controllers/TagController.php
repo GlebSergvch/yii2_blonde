@@ -1,9 +1,9 @@
 <?php
 
-namespace backend\controllers;
+namespace common\modules\blog\controllers;
 
-use common\models\Tag;
-use common\models\TagSearch;
+use common\modules\blog\models\Tag;
+use common\modules\blog\models\TagSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
