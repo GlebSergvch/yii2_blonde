@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\Blog;
+use common\modules\blog\models\Blog;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
