@@ -93,7 +93,7 @@ use vova07\imperavi\Widget;
             'multiple'=>true
         ],
         'pluginOptions' => [
-            'deleteUrl' => Url::toRoute(['/blog/delete-image']),
+            'deleteUrl' => Url::toRoute(['/blog/blog/delete-image']),
             'initialPreview' => $model->imagesLinks,
             'initialPreviewAsData' => true,
             'overwriteInitial' => false,
@@ -107,7 +107,7 @@ use vova07\imperavi\Widget;
         ],
         'pluginEvents' => [
             'filesorted' => new \yii\web\JsExpression('function(event, params){
-                  $.post("'.Url::toRoute(["/blog/sort-image","id"=>$model->id]).'",{sort: params});
+                  $.post("'.Url::toRoute(["/blog/blog/sort-image","id"=>$model->id]).'",{sort: params});
             }')
         ]
     ]);
