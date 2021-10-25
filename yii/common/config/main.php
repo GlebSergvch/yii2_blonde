@@ -12,6 +12,10 @@ return [
         'image' => [
             'class' => 'yii\image\ImageDriver',
             'driver' => 'Imagick',  //GD or Imagick
-        ]
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'cache' => 'cache',
+        ],
     ],
 ];
